@@ -68,7 +68,7 @@ class PostControl extends Control
 }
 ```
 
-- HasControl trait: adds `controlled()` and `uncontrolled()` macros to Eloquent (and Scout) builders and exposes the model's Control. Example usage:
+- HasControl trait: boots `HasControlScope`, which registers the `controlled()` and `uncontrolled()` macros on the model's **Eloquent** query builder, and exposes the model's Control via `newControl()`. The Scout `controlled()` macro is registered independently by `AccessServiceProvider` whenever Laravel Scout is installed (see Laravel Scout integration below); `uncontrolled()` is Eloquent-only. Example usage:
 
 ```php
 use Lomkit\Access\Controls\HasControl;
